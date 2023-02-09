@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .valid {
+        color: green;
+      }
+      .invalid {
+        color: red;
+      }
+      #psw {
+        margin-left: 58px;
+      }
+      #custom {
+        padding-left: 38%;
+      }
+      input[type="submit"] {
+        margin-left: 150px;
+      }
+   
+    </style>
+  </head>
+  <body>
+    <p id="custom">
+      <label for="psw">Password</label>
+      <input
+        type="text"
+        id="psw"
+        name="psw"
+        placeholder="Enter The Valid Password"
+        required
+      />
+      <br /><br />
+      <label for="psw12"> Confirm Password</label>
+      <input
+        type="text"
+        id="cpassword"
+        name="psw"
+        placeholder="Password#123"
+        required
+      />
+      <br /><br />
+      <input type="submit" value="Submit" onclick="confirm()" />
+    </p>
+    <h3>Password must contain the following:</h3>
+    <p id="letter">
+      Password must contain (Lower & Upper) Letters, 1 Special characters,
+      Minimum 8 characters
+    </p>
+    <p id="number">Password Must Include Numbers</p>
+
+    <script>
+      var myInput = document.getElementById("psw");
+      var letter = document.getElementById("letter");
+      var number = document.getElementById("number");
+
+      myInput.onkeyup = function () {
+        var Letters = /[a-zA-Z@*%].{8,}/g;
+        if (myInput.value.match(Letters)) {
+          letter.classList.remove("invalid");
+          letter.classList.add("valid");
+        } else {
+          letter.classList.remove("valid");
+          letter.classList.add("invalid");
+        }
+        var numbers = /[0-9]/g;
+        if (myInput.value.match(numbers)) {
+          number.classList.remove("invalid");
+          number.classList.add("valid");
+        } else {
+          number.classList.remove("valid");
+          number.classList.add("invalid");
+        }
+      };
+
+      function confirm() {
+        var cpass = document.getElementById("cpassword");
+        if (myInput.value == cpass.value) {
+          alert("Password Matched Successfully");
+        } else {
+          alert("Incorrect Password");
+        }
+      }
+    </script>
+  </body>
+</html>
