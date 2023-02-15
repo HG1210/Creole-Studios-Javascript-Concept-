@@ -14,11 +14,12 @@ document.write(
 
 // Remove specific characters from a string
 // What’s the most efficient way to strip specific characters from a string? Without using replace().
-const st2 = "I am an example string";
-document.write(
-  "<br>The final String will be:-",
-  st2.substring(0, 1) + " " +st2.substring(3, 4) +" " +st2.substring(5, 6) +" " +st2.substring(8, 9) +" " +st2.substring(11, 21)
-);
+const st3 = "I am an example string";
+  const myarr=st3.split("a");
+  const myarr1=myarr.join("");
+  const myarr2=myarr1.split("x");
+  const myarr3=myarr2.join(" ");
+  document.write("<br>The following element 'a' and 'x' is removed:-",myarr3);
 
 //12)
 const a12 = {
@@ -62,5 +63,41 @@ if (str.startsWith(cat)) {
   document.write("<br>", false);
 }
 
-//Shuffle and sort
+//6)Sort the string alphabetically.
+function sort(str)
+  {
+return str.split('').sort().join('');
+  }
+document.write("<br>The sorted elements are:-",sort("bacd"));
 
+//11)Alternatetext Caps
+function alternatetext(s){
+    var a10 =s.toLowerCase().split("");
+    for(var i=0;i<a10.length;i=i+2){
+        a10[i]=a10[i].toUpperCase();
+    }
+    return a10.join("");
+}
+document.write("<br>",alternatetext("harsh gandhi"));
+
+//Shuffle the string
+function getRandomInt(n) {
+    return Math.floor(Math.random() * n);
+  }
+  function shuffle(s) {
+    var arr = s.split('');           
+    var n = arr.length;              
+    for(var i=0 ; i<n-1 ; ++i) {
+      var j = getRandomInt(n);       
+      
+      var temp = arr[i];             
+      arr[i] = arr[j];
+      arr[j] = temp;
+    }
+    
+    s = arr.join('');                
+    return s;                        
+  }
+  var s = 'Harsh';
+  s = shuffle(s);
+  document.write("<br>",s);
