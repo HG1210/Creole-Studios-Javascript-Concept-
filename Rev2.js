@@ -22,13 +22,9 @@ const st3 = "I am an example string";
   document.write("<br>The following element 'a' and 'x' is removed:-",myarr3);
 
 //12)
-const a12 = {
-  name1: "The unexamined life is not worth living",
-  sign: "-",
-  author1: "Socrates",
-};
-const b3 = JSON.stringify(a12.name1 + "," + " " + a12.author1);
-document.write("<br>The Output will be:-", b3);
+const a14 = `The unexamined life is not worth living. - Socrates`;
+let arr= a14.split("-");
+document.write("<br>",arr);
 
 //Capitalize the first letter of each word. Write a function to capitalize the first letter of each word in the provided string.
 // var str1="i am a string";
